@@ -1,0 +1,145 @@
+﻿@using Syncfusion.EJ2
+@{
+    ViewBag.Title = "Expense";
+}
+<div class='exp-content-container'>
+    <div>
+        <h1 class="page-title"> All Transactions </h1>
+    </div>
+    <div>
+        <div class="col-md-12 margin-top col-lg-12">
+            <div class="expense-grid-container">
+                <div class="expense-head-padding">
+                    <div class="search-wrapper search-section">
+                        <div id="search">
+                            <input id="txt" type="search" placeholder="Search" class="search e-input">
+                            <span id="searchbtn" class="e-search-icon expense-search-icon e-icons"></span>
+                        </div>
+                        <div class="button-section search-section">
+                            <ejs-button id="addexpense" content="Add Transaction"></ejs-button>
+                            <button id="filterExpense" class="e-btn small e-info">Filter</button>
+                            <div id="add-btn" class='e-btn'>
+                                <span class='e-icons add-icon add-head-item'></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ejs-grid id="grid" width="100%" height="100%" allowSelection="true" rowSelected="onGridCheckBoxChange" rowDeselected="onGridCheckBoxChange" created="onGridRender" allowPaging="true" cellSave="onGridSave" allowTextWrap="false" actionComplete="onGridActionComplete" actionBegin="onGridEditBegin" toolbar="@(new List<string>() { "Edit", "Delete" })">
+                    <e-grid-editsettings allowEditing="true"></e-grid-editsettings>
+                    <e-grid-pagesettings pageSize="11"></e-grid-pagesettings>
+                    <e-grid-columns>
+                        <e-grid-column type="checkbox" width="40"></e-grid-column>
+                        <e-grid-column field="Category" headerText="Category" template="#template" width="178" editType="dropdownedit" validationRules="new { required = true }" clipMode="EllipsisWithTooltip"></e-grid-column>
+                        <e-grid-column field="DateTime" headerText="Date" format="yMd" width="112" editType="datepickeredit" validationRules="new { required = true }" hideAtMedia="(min-Width: 1050px)"></e-grid-column>
+                        <e-grid-column field="PaymentMode" headerText="Payment Mode" width="140" editType="dropdownedit" validationRules="new { required = true }" hideAtMedia="(min-Width: 600px)"></e-grid-column>
+                        <e-grid-column field="Description" headerText="Description" clipMode="Ellipsis" validationRules="new { required = true }" hideAtMedia="(min-Width: 1050px)"></e-grid-column>
+                        <e-grid-column field="UniqueId" headerText="Unique Id" isPrimaryKey="true" visible="false"></e-grid-column>
+                        <e-grid-column field="Amount" headerText="Amount" editType="numericedit" width="120" format="C0" template="#amtTemplate" validationRules="new { required = true }" textAlign="Right"></e-grid-column>
+                    </e-grid-columns>
+                </ejs-grid>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class='filter-container'>
+        <aside id="sidebar-indexexpense">
+            <div class="filter pane sidebar-wrapper-filter">
+                <div class="filter-head">
+                    <span class="e-icon filter-icon filter-head-item"></span>
+                    <span class="filter-txt filter-head-item">Filters</span>
+                </div>
+                <div class="expense-filter-container">
+                    <label class="label-font">Select a range</label>
+                    <div class='filter-item'>
+                        <ejs-daterangepicker id="daterange" cssClass="DateTime" format="MM/dd/yyyy" showClearButton="false" change="dateRangeChanged" readonly="false" endDate="new System.DateTime(2017, 11, 30,23,59,59)" startDate="new System.DateTime(2017, 06, 01,00,01,01)"></ejs-daterangepicker>
+                    </div>
+                    <label class="label-font">Category</label>
+                    <div class="treeview filter-item">
+                        <ejs-multiselect id="expense-category" placeholder="Select Categories" mode="Box" hideSelectedItem="true" closePopupOnSelect="false" select="categoryUpdated" removed="categoryUpdated"></ejs-multiselect>
+                    </div>
+                    <label class="label-font bottom-align">Cashflow</label>
+                    <div class="cashflow filter-item">
+                        <ejs-checkbox id="income" label="Income" checked="true" cssClass="TransactionType" change="onCheckBoxChange"></ejs-checkbox>
+                        <ejs-checkbox id="expenses" label="Expense" checked="true" cssClass="TransactionType" change="onCheckBoxChange"></ejs-checkbox>
+                    </div>
+                    <label class="label-font bottom-align">Payment Mode</label>
+                    <div class="paymentModes filter-item">
+                        <ejs-checkbox id="cash" label="Cash" checked="true" cssClass="PaymentMode" change="onCheckBoxChange"></ejs-checkbox>
+                        <ejs-checkbox id="debitcard" label="Debit Card" checked="true" cssClass="PaymentMode" change="onCheckBoxChange"></ejs-checkbox>
+                        <br />
+                        <br />
+                        <ejs-checkbox id="creditcard" label="Credit Card" checked="true" cssClass="PaymentMode" change="onCheckBoxChange"></ejs-checkbox>
+                    </div>
+                    <div>
+                        <label class="label-font">Amount</label>
+                        <div class='amount-filter'>
+                            <div class='min-numeric amt-filter' style="width:100%">
+                                <label class="inlineAlign minLabel">Min</label>
+                                <label class="inlineAlign maxLabel" style="float:right;">Max</label>
+                                <div style="width:100%;height:50%;z-index:10000;">
+                                    <ejs-slider id="range" type="Range" cssClass="inlineAlign" showButtons="true" change="amountChanged">
+                                        <e-slider-tooltipdata placement="Before" isVisible="true" showOn="Focus"></e-slider-tooltipdata>
+                                    </ejs-slider>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script id="template" type="text/x-template">
+    <div class="normalRes">
+        <div class="category-icon ${Category}"></div>
+        <div class='category-text'>${Category}</div>
+    </div>
+    <div class="mediumRes">
+        <div>
+            <div class="category-icon ${Category}"></div>
+        </div>
+        <div>
+            <div> ${Category} </div>
+            <div class="description-section"> ${Description} </div>
+        </div>
+    </div>
+    <div class="smallRes">
+        <div class='sm-category sm-icon'>
+            <div class="category-icon ${Category}"></div>
+        </div>
+        <div class='sm-category category-content'>
+            <div> ${Category} </div>
+            <div class="description-section"> ${Description} </div>
+            <div> ${PaymentMode} </div>
+        </div>
+    </div>
+</script>
+
+<script id="amtTemplate" type="text/x-template">
+    <div class="normalRes">
+        <div class="lg-amount">
+            <div class='amt-payment ${TransactionType}'>
+                <span>$</span> <span>${Amount}</span>
+            </div>
+        </div>
+    </div>
+    <div class="mediumRes">
+        <div class="res-amount">
+            <div class='amt-payment ${TransactionType}'>
+                <span>$</span> <span>${Amount}</span>
+            </div>
+            <div>  ${getDate(data.DateTime)} </div>
+        </div>
+    </div>
+    <div class="smallRes">
+        <div class="res-amount">
+            <div class='amt-payment ${TransactionType}'>
+                <span>$</span> <span>${Amount}</span>
+            </div>
+            <div>  ${getDate(data.DateTime)} </div>
+        </div>
+    </div>
+</script>
+@Html.EJS().ScriptManager()
