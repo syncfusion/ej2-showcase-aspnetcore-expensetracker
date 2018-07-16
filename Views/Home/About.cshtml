@@ -1,0 +1,87 @@
+﻿@using Syncfusion.EJ2
+@{
+    ViewBag.Title = "About";
+}
+<div>
+    <div class='about-heading'>About this sample</div>
+    <div class='about-description'>
+        This expense tracker demo application showcases using several Essential JS 2 components together in a real-world application
+        scenario. You can further explore the source code of this application and use it as a reference for integrating Essential
+        JS 2 components into your applications.
+    </div>
+    <div class='list-heading'>List of EJ2 components used in this sample</div>
+    <div class='about-component'>
+        <div class='control-item'>
+            <span class="icon-button e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/button/getting-started-core.html" target="_blank">Button</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-card e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/card/getting-started-asp-core.html" target="_blank">Card</a>
+        </div>
+
+        <div class='control-item'>
+            <span class="icon-chart e-sb-icon control-icon"></span>
+            <a class='control-name' href="http://ej2.syncfusion.com/aspnet/documentation/chart/getting-started-core.html" target="_blank">Chart</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-checkbox e-sb-icon control-icon"></span>
+            <a class='control-name' href="http://ej2.syncfusion.com/aspnet/documentation/check-box/getting-started-core.html" target="_blank">CheckBox</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-datepicker e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/datepicker/getting-started.html" target="_blank">DatePicker</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-daterangepicker e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/daterangepicker/getting-started.html" target="_blank">DateRangePicker</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-dialog e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/dialog/getting-started-asp-core.html" target="_blank">Dialog</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-dropdownlist e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/drop-down-list/getting-started.html" target="_blank">DropDownList</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-grid e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/grid/getting-started-core.html" target="_blank">Grid</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-multiselect e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/multi-select/getting-started.html" target="_blank">MultiSelect</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-numerictextbox e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/numerictextbox/getting-started.html" target="_blank">NumericTextBox</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-radiobutton e-sb-icon control-icon"></span>
+            <a class='control-name' href="http://ej2.syncfusion.com/aspnet/documentation/radio-button/getting-started-core.html" target="_blank">RadioButton</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-sidebar e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/sidebar/getting-started.html" target="_blank">Sidebar</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-slider e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/slider/getting-started-asp-core.html" target="_blank">Slider</a>
+        </div>
+
+        <div class='control-item'>
+            <span class="icon-textboxes e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/textbox/Getting-Started.html" target="_blank">TextBoxes</a>
+        </div>
+        <div class='control-item'>
+            <span class="icon-timepicker e-sb-icon control-icon"></span>
+            <a class='control-name' href="https://ej2.syncfusion.com/aspnet/documentation/timepicker/getting-started.html" target="_blank">TimePicker</a>
+        </div>
+    </div>
+</div>
+@Html.EJS().ScriptManager()
+<script>
+    window.about = function () {
+        cardUpdate();
+    };
+</script>
