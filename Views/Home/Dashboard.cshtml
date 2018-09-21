@@ -13,7 +13,7 @@
             <div style="display: inline-block">Dashboard</div>
         </div>
         <div class="col-md-3 col-xs-12 col-xl-6 col-lg-3 daterange overview-range-picker">
-            <ejs-daterangepicker id="daterangepicker" readonly="false" showClearButton="false" change="onDateRangeChange" endDate="new System.DateTime(2017, 11, 30,23,59,59)" startDate="new System.DateTime(2017, 06, 01,00,00,00)"></ejs-daterangepicker>
+            <ejs-daterangepicker id="daterangepicker" format="MM/dd/yyyy" allowEdit="false" showClearButton="false" change="onDateRangeChange" endDate="new System.DateTime(2017, 12, 1, 00, 00, 00)" startDate="new System.DateTime(2017, 06, 01, 00, 00, 00)"></ejs-daterangepicker>
         </div>
     </div>
     <div>
@@ -64,7 +64,12 @@
                         <div class="pieChart">
                             <ejs-accumulationchart id="total-expense" enableSmartLabels="true" width="100%" height="350px" textRender="textRender" animationComplete="animationComplete">
                                 <e-accumulation-series-collection>
-                                    <e-accumulation-series dataSource="null" xName="text" yName="y" radius="83%" startAngle="0" endAngle="360" innerRadius="50%" palettes="ViewBag.palettes" animation="ViewBag.animation" dataLabel="ViewBag.dataLabel"></e-accumulation-series>
+                                    <e-accumulation-series xName="text" yName="y" radius="83%" startAngle="0" endAngle="360" innerRadius="50%" palettes="ViewBag.palettes" animation="ViewBag.animation">
+                                        <e-accumulationseries-datalabel name="x" visible="true" position="Outside">
+                                            <e-connectorstyle length="10%"></e-connectorstyle>
+                                            <e-font color="Black" size="14px" fontFamily="Roboto"></e-font>
+                                        </e-accumulationseries-datalabel>
+                                    </e-accumulation-series>
                                 </e-accumulation-series-collection>
                                 <e-accumulationchart-legendsettings visible="true"></e-accumulationchart-legendsettings>
                             </ejs-accumulationchart>
@@ -101,14 +106,20 @@
                     <div class="chart-padding">
                         <div class="line-chart" style="width:100%; max-width: 494px;">
                             <ejs-chart id="balance" useGroupingSeparator="true" margin="ViewBag.margin">
-                                <e-chart-primaryxaxis valueType="DateTime" labelFormat="MMM" majorGridLines="ViewBag.mgLine" intervalType="Months"></e-chart-primaryxaxis>
+                                <e-chart-primaryxaxis valueType="DateTime" labelFormat="MMM" intervalType="Months">
+                                    <e-majorgridlines width="0"></e-majorgridlines>
+                                </e-chart-primaryxaxis>
                                 <e-chart-primaryyaxis maximum="1800" interval="300" labelFormat="c0"></e-chart-primaryyaxis>
                                 <e-chart-chartarea border="ViewBag.chartarea"></e-chart-chartarea>
                                 <e-chart-annotations>
                                     <e-chart-annotation content="ViewBag.content" x="75" y="9%" coordinateUnits="Pixel" region="Chart"></e-chart-annotation>
                                 </e-chart-annotations>
                                 <e-series-collection>
-                                    <e-series type="Area" xName="DateTime" width="2" marker="ViewBag.marker" yName="Amount" name="Amount" fill="rgba(4, 112, 216, 0.3)" border="ViewBag.border"></e-series>
+                                    <e-series type="Area" xName="DateTime" width="2" yName="Amount" name="Amount" fill="rgba(4, 112, 216, 0.3)" border="ViewBag.border">
+                                        <e-series-marker visible="true" width="10" height="10" fill="white">
+                                            <e-marker-border width="2" color="#0470D8"></e-marker-border>
+                                        </e-series-marker>
+                                    </e-series>
                                 </e-series-collection>
                                 <e-chart-tooltipsettings fill="#707070" enable="true" shared="true" format="${series.name} : ${point.y}" header="Month - ${point.x} "></e-chart-tooltipsettings>
                                 <e-chart-titlestyle textAlignment="Near" fontWeight="500" size="16" color="#000"></e-chart-titlestyle>
@@ -128,8 +139,14 @@
                                 <e-chart-annotation content="ViewBag.accBalancecontent" x="75" y="9%" coordinateUnits="Pixel" region="Chart"></e-chart-annotation>
                             </e-chart-annotations>
                             <e-series-collection>
-                                <e-series type="Column" xName="DateTime" width="2" marker="ViewBag.accBalanceMarker" legendShape="Circle" animation="ViewBag.accBalanceAnimation" yName="Amount" name="Income" fill="#A16EE5" border="ViewBag.accBalanceborder"></e-series>
-                                <e-series type="Column" xName="DateTime" width="2" marker="ViewBag.accBalanceMarker" legendShape="Circle" animation="ViewBag.accBalanceAnimation" yName="Amount" name="Expense" fill="#4472C4"></e-series>
+                                <e-series type="Column" xName="DateTime" width="2" legendShape="Circle" yName="Amount" name="Income" fill="#A16EE5" border="ViewBag.accBalanceborder">
+                                    <e-series-marker visible="true" width="10" height="10"></e-series-marker>
+                                    <e-series-animation enable="false"></e-series-animation>
+                                </e-series>
+                                <e-series type="Column" xName="DateTime" width="2" legendShape="Circle" yName="Amount" name="Expense" fill="#4472C4">
+                                    <e-series-marker visible="true" width="10" height="10"></e-series-marker>
+                                    <e-series-animation enable="false"></e-series-animation>
+                                </e-series>
                             </e-series-collection>
                             <e-chart-tooltipsettings fill="#707070" enable="true" shared="true" format="${series.name} : ${point.y}" header="Month - ${point.x} "></e-chart-tooltipsettings>
                         </ejs-chart>

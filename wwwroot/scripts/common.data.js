@@ -1,6 +1,6 @@
 
 var startDate = new Date('2017-05-31T12:30:00-06:00');
-var endDate = new Date('2017-11-30T12:29:00-06:00');
+var endDate = new Date('2017-11-30T12:30:00-06:00');
 var userInfo = {
     'FirstName': 'Nicholas',
     'FullName': 'Nicholas Delacruz',
