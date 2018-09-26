@@ -1,9 +1,10 @@
 //sass-lint:disable-all
 @import 'definition/material.scss';
-$accent: #4273F9;
-$accent-font: #fff;
 @import 'ej2-base/styles/material-definition.scss';
 @import 'ej2-base/styles/all.scss';
+@import 'ej2-base/styles/definition/_material.scss';
+$accent: #4273F9;
+$accent-font: #fff;
 @import 'ej2-buttons/styles/button/definition.scss';
 @import 'ej2-buttons/styles/button/material-definition.scss';
 @import 'ej2-buttons/styles/button/all.scss';
@@ -67,3 +68,6 @@ $accent-font: #fff;
 @import 'ej2-popups/styles/tooltip/definition.scss';
 @import 'ej2-popups/styles/tooltip/material-definition.scss';
 @import 'ej2-popups/styles/tooltip/all.scss';
+@import 'ej2-inputs/styles/slider/definition.scss';
+@import 'ej2-inputs/styles/slider/material-definition.scss';
+@import 'ej2-inputs/styles/slider/all.scss';
