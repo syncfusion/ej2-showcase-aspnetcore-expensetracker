@@ -33,7 +33,9 @@ namespace EJ2CoreSampleBrowser.Controllers
                     fontFamily = "Roboto"
                 }
             };
-            ViewBag.animation = new { enable = false };
+            AccumulationChartAnimation animation = new AccumulationChartAnimation();
+            animation.Enable = false;
+            ViewBag.animation = animation;
             ViewBag.palettes = new string[] { "#61EFCD", "#CDDE1F", "#FEC200", "#CA765A", "#2485FA", "#F57D7D", "#C152D2",
                     "#8854D9", "#3D4EB8", "#00BCD7" };
             ViewBag.legentSettings = new
