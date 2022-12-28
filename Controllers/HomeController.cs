@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Syncfusion.EJ2.Charts;
 
-namespace EJ2CoreSampleBrowser.Controllers
+namespace Expense_Tracker_ASPCore.Controllers
 {
     public class HomeController : Controller
     {
