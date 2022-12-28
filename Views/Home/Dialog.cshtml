@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Dialog";
+}
+
+<div class='dlg-content'>
+    <div class="transaction-dialog">
+        <div class='dlg-radio-btn-section'>
+            <div class='dlg-income-radio-section'>
+                <input id="incomeradio" />
+            </div>
+            <div class='dlg-expense-radio-section'>
+                <input id="expenseradio" />
+            </div>
+        </div>
+        <div class='dlg-date-section'>
+            <div class='dlg-date-picker-container'>
+                <div>
+                    <input id="datepicker" />
+                </div>
+            </div>
+            <div class='dlg-time-picker-container'>
+                <div>
+                    <input id="timepicker" />
+                </div>
+            </div>
+        </div>
+        <div class='category-section'>
+            <div class='dlg-category-container'>
+                <div>
+                    <input type="text" id="category">
+                </div>
+            </div>
+            <div class='dlg-amount-container'>
+                <div>
+                    <input id="amount" />
+                </div>
+            </div>
+        </div>
+        <div class='description-container'>
+            <div>
+                <div class="e-float-input">
+                    <input type='text' id="description" class="e-input required readonly" />
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text e-label-top">Descriptions</label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class='payment-label'>
+                <label class="">Payment Mode</label>
+            </div>
+            <div class='payment-radio-container'>
+                <div class='dlg-cash-payment'>
+                    <input id="cashradio" />
+                </div>
+                <div class='dlg-debit-payment'>
+                    <input id="debitradio" />
+                </div>
+                <div class='dlg-credit-payment'>
+                    <input id="creditradio" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
