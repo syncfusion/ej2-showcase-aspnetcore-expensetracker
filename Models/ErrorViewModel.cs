@@ -1,4 +1,4 @@
-﻿namespace Expense_Tracker_ASPCore.Models
+namespace Expense_Tracker_ASPCore.Models
 {
     public class ErrorViewModel
     {
