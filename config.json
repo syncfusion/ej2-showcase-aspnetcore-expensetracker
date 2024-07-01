@@ -1,5 +1,0 @@
-{
-  "deploy": [ "deploy/**/*" ],
-  "base": "deploy",
-  "isShowCase": true
-}
