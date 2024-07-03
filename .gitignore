@@ -1,0 +1,6 @@
+**/.vs/
+.git/
+**/bin/
+**/obj
+node_modules/
+package-lock.json
