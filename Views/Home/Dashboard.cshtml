@@ -110,7 +110,7 @@
                                 <e-chart-primaryyaxis maximum="1800" interval="300" labelFormat="c0"></e-chart-primaryyaxis>
                                 <e-chart-chartarea border="ViewBag.chartarea"></e-chart-chartarea>
                                 <e-chart-annotations>
-                                    <e-chart-annotation content="ViewBag.content" x="75" y="9%" coordinateUnits="Pixel" region="Chart"></e-chart-annotation>
+                                    <e-chart-annotation content="@ViewBag.content" x="75" y="9%" coordinateUnits="Pixel" region="Chart"></e-chart-annotation>
                                 </e-chart-annotations>
                                 <e-series-collection>
                                     <e-series type="Area" xName="DateTime" width="2" yName="Amount" name="Amount" fill="rgba(4, 112, 216, 0.3)" border="ViewBag.border">
@@ -133,7 +133,7 @@
                             <e-chart-primaryxaxis valueType="DateTime" labelFormat="MMM" edgeLabelPlacement="Shift" intervalType="Months"></e-chart-primaryxaxis>
                             <e-chart-primaryyaxis maximum="9000" minimum="3000" labelFormat="c0"></e-chart-primaryyaxis>
                             <e-chart-annotations>
-                                <e-chart-annotation content="ViewBag.accBalancecontent" x="75" y="9%" coordinateUnits="Pixel" region="Chart"></e-chart-annotation>
+                                <e-chart-annotation content="@ViewBag.accBalancecontent" x="75" y="9%" coordinateUnits="Pixel" region="Chart"></e-chart-annotation>
                             </e-chart-annotations>
                             <e-series-collection>
                                 <e-series type="Column" xName="DateTime" width="2" legendShape="Circle" yName="Amount" name="Income" fill="#A16EE5" border="ViewBag.accBalanceborder">
