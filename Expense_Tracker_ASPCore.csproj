@@ -10,6 +10,4 @@
     <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="33.1.44" /> 
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
-
 </Project>
